@@ -29,10 +29,10 @@ def es_numero(presupuesto):                         #Funcion que verifica si se 
         global presupuesto_numero                   #Utiliza la variable global "presupuesto_numero", en vez de utilizar una local
         presupuesto_numero = int(presupuesto)       #Convierte la string recibida a un numero
         return presupuesto_numero                   #Regresa el presupuesto
-        
     else:                                           #Si el presupuesto no es un numero se se repite el ciclo while hasta que reciba un numero
+        a = 0
         print ("Ingresa un numero valido")
-        return 0                                    #Regresa un cero y se repetira el ciclo del presupuesto
+        return a                                    #Regresa "a" y se repetira el ciclo del presupuesto
         
 
 while a == 0:                                               #ciclo "while", que se repite si no se da un valor numerico como presupuesto
