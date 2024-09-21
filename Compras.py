@@ -13,10 +13,16 @@ costo_total = 0					#variable que cambia en base a cuanto producto se compra
 presupuesto_numero = 0          #Variable que recibira el presupuesto del comprador
 a = 0                           #variable que controla el ciclo while del presupuesto
 i = 0                           #variable que controla el ciclo while de las compras
+lista = [0,0,0,0,0]				#Lista que guardara los articulos comprados en total
 
 def recibo(presupuesto_numero):                 #Funcion que imprimira todo lo necesario para un recibo recibiendo el presupuesto
     print ("Recibo:")                           
     print ("Productos comprados: ", cantidad_numero_total)
+    print ("Refrescos comprados: ",lista[0],"/","Costo neto:", costo_refresco_total)
+    print ("Doritos comprados: ",lista[1],"/","Costo neto:", costo_doritos_total)
+    print ("Paletas payaso comprados: ",lista[2],"/","Costo neto:", costo_paleta_total)
+    print ("Botellas de agua comprados: ",lista[3],"/","Costo neto:", costo_agua_total)
+    print ("Cacahuates premium comprados: ",lista[4],"/","Costo neto:", costo_cacahuate_total)
     print ("Presupuesto: ", presupuesto_numero)
     print ("Costo total: ", costo_total)
     cambio = presupuesto_numero - costo_total   #Operacion que calcula el cambio en base al presupuesto y el costo total
@@ -50,6 +56,8 @@ while i == 0:                                       #Incio del ciclo while
     if seleccion == "1":                                #Un if para saber que producto se va a comprar
         cantidad = input("Cuantos vas a comprar: ")     #Se solicita el numero de productos que se van a comprar
         cantidad_numero = int(cantidad)                 #Convierte la string recibida a un numero entero
+        cantidad_total_refresco = lista[0] + cantidad_numero	#
+        lista[0] = cantidad_total_refresco
         costo_refresco = cantidad_numero * REFRESCO_PRECIO      #Operacion que obtiene el costo del producto en base a la cantidad y el precio unitario
         print ("Costo", costo_refresco)
         seguir = input ("Seguir comprando [y/n]")
@@ -67,6 +75,8 @@ while i == 0:                                       #Incio del ciclo while
     elif seleccion == "2":                              #Un if para saber que producto se va a comprar
         cantidad = input ("Cuantos vas a comprar: ")    #Se solicita el numero de productos que se van a comprar
         cantidad_numero = int (cantidad)                #Convierte la string recibida a un numero entero
+        cantidad_total_doritos = lista[1] + cantidad_numero
+        lista[1] = cantidad_total_doritos
         costo_doritos = cantidad_numero * DORITOS_PRECIO    #Operacion que obtiene el costo del producto en base a la cantidad y el precio unitario
         print ("Costo", costo_doritos)      
         seguir = input ("Seguir comprando [y/n]")       
@@ -84,6 +94,8 @@ while i == 0:                                       #Incio del ciclo while
     elif seleccion == "3":                              #Un if para saber que producto se va a comprar
         cantidad = input ("Cuantos vas a comprar: ")    #Se solicita el numero de productos que se van a comprar
         cantidad_numero = int (cantidad)                #Convierte la string recibida a un numero entero
+        cantidad_total_paleta = lista[2] + cantidad_numero
+        lista[2] = cantidad_total_paleta
         costo_paleta = cantidad_numero * PALETA_PAYASO_PRECIO   #Operacion que obtiene el costo del producto en base a la cantidad y el precio unitario
         print ("Costo", costo_paleta)                   
         seguir = input ("Seguir comprando [y/n]")
@@ -101,6 +113,8 @@ while i == 0:                                       #Incio del ciclo while
     elif seleccion == "4":                              #Un if para saber que producto se va a comprar
         cantidad = input ("Cuantos vas a comprar: ")    #Se solicita el numero de productos que se van a comprar
         cantidad_numero = int (cantidad)                #Convierte la string recibida a un numero entero
+        cantidad_total_agua = lista[3] + cantidad_numero
+        lista[3] = cantidad_total_agua
         costo_agua = cantidad_numero * BOTELLA_AGUA_PRECIO  #Operacion que obtiene el costo del producto en base a la cantidad y el precio unitario
         print ("Costo", costo_agua)
         seguir = input ("Seguir comprando [y/n]")
@@ -118,6 +132,8 @@ while i == 0:                                       #Incio del ciclo while
     elif seleccion == "5":                              #Un if para saber que producto se va a comprar
         cantidad = input ("Cuantos vas a comprar: ")    #Se solicita el numero de productos que se van a comprar
         cantidad_numero = int (cantidad)                #Convierte la string recibida a un numero entero
+        cantidad_total_cacahuate = lista[4] + cantidad_numero
+        lista[4] = cantidad_total_cacahuate
         costo_cacahuate = cantidad_numero * CACAHUATES_PREMIUM_PRECIO   #Operacion que obtiene el costo del producto en base a la cantidad y el precio unitario
         print ("Costo", costo_cacahuate)                
         seguir = input ("Seguir comprando [y/n]")
