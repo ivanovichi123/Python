@@ -14,6 +14,20 @@ presupuesto_numero = 0          #Variable que recibira el presupuesto del compra
 a = 0                           #variable que controla el ciclo while del presupuesto
 i = 0                           #variable que controla el ciclo while de las compras
 lista = [0,0,0,0,0]				#Lista que guardara los articulos comprados en total
+cacahuate_precio = [			#Matriz del precio cambiante de los cacahuates segun su mes y semana
+    [48,48,46,48],
+    [50,51,46,35],
+    [35,30,31,30],
+    [48,51,36,34],
+    [31,46,46,42],
+    [51,33,32,42],
+    [39,50,46,46],
+    [33,35,41,45],
+    [48,33,41,70],
+    [42,49,39,35],
+    [42,30,31,34],
+    [45,35,45,33],
+]
 
 def recibo(presupuesto_numero):                 #Funcion que imprimira todo lo necesario para un recibo recibiendo el presupuesto
     print ("Recibo:")                           
@@ -39,7 +53,17 @@ def es_numero(presupuesto):                         #Funcion que verifica si se 
         a = 0
         print ("Ingresa un numero valido")
         return a                                    #Regresa "a" y se repetira el ciclo del presupuesto
+    
+def determina_cacahuate_precio(mes,semana):				#Funcion que determina cual sera el precio del cacahuate
+    mes_lugar = mes - 1									#Se resta para emepzar desde el indice 0
+    semana_lugar = semana - 1							#Se resta para empezar desde el indice 0
+    precio = cacahuate_precio[mes_lugar][semana_lugar]	#Se obtiene el precio en base a los indices
+    return precio										#Regresa el precio
         
+mes = int(input("Selecciona el mes: "))					#Solicita el mes de la compra
+semana = int(input("Selecciona la semana: "))			#Solicita la semana de la compra
+cacahuates_premium_precio = determina_cacahuate_precio(mes,semana)	#Guarda en una variable el resultado de la funcion determina_cacahuate_precio
+
 
 while a == 0:                                               #ciclo "while", que se repite si no se da un valor numerico como presupuesto
     presupuesto = input ("¿Cual es su presupuesto?: ")      #Pide el presupuesto de la persona
@@ -51,7 +75,7 @@ while i == 0:                                       #Incio del ciclo while
     print ("[2]Doritos ($23)")
     print ("[3]Paleta payaso ($10)")
     print ("[4]Botella de agua ($13)")
-    print ("[5]Cacahuates premium ($30)")
+    print (f"[5]Cacahuates premium (${cacahuates_premium_precio})")
     seleccion = input("Selecciona el numero del articulo que vas a comprar: ")
     if seleccion == "1":                                #Un if para saber que producto se va a comprar
         cantidad = input("Cuantos vas a comprar: ")     #Se solicita el numero de productos que se van a comprar
@@ -134,7 +158,7 @@ while i == 0:                                       #Incio del ciclo while
         cantidad_numero = int (cantidad)                #Convierte la string recibida a un numero entero
         cantidad_total_cacahuate = lista[4] + cantidad_numero
         lista[4] = cantidad_total_cacahuate
-        costo_cacahuate = cantidad_numero * CACAHUATES_PREMIUM_PRECIO   #Operacion que obtiene el costo del producto en base a la cantidad y el precio unitario
+        costo_cacahuate = cantidad_numero * cacahuates_premium_precio   #Operacion que obtiene el costo del producto en base a la cantidad y el precio unitario
         print ("Costo", costo_cacahuate)                
         seguir = input ("Seguir comprando [y/n]")
         if seguir == "n":                               #If para saber si se quiere seguir comprando o no
