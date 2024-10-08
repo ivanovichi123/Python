@@ -15,18 +15,33 @@ a = 0                           #variable que controla el ciclo while del presup
 i = 0                           #variable que controla el ciclo while de las compras
 lista = [0,0,0,0,0]				#Lista que guardara los articulos comprados en total
 cacahuate_precio = [			#Matriz del precio cambiante de los cacahuates segun su mes y semana
-    [48,48,46,48],
-    [50,51,46,35],
-    [35,30,31,30],
-    [48,51,36,34],
-    [31,46,46,42],
-    [51,33,32,42],
-    [39,50,46,46],
-    [33,35,41,45],
-    [48,33,41,70],
-    [42,49,39,35],
-    [42,30,31,34],
-    [45,35,45,33],
+    [48, 48, 46, 48],
+    [50, 51, 46, 35],
+    [35, 30, 31, 30],
+    [48, 51, 36, 34],
+    [31, 46, 46, 42],
+    [51, 33, 32, 42],
+    [39, 50, 46, 46],
+    [33, 35, 41, 45],
+    [48, 33, 41, 70],
+    [42, 49, 39, 35],
+    [42, 30, 31, 34],
+    [45, 35, 45, 33],
+]
+
+botella_agua_precio = [			#Matriz del precio cambiante de la botella de agua segun su mes y semana
+    [36, 24, 21, 20],
+    [14, 13, 15, 36],
+    [16, 24, 20, 13],
+    [33, 33, 30, 13],
+    [11, 25, 35, 23],
+    [29, 15, 41, 27],
+    [34, 16, 29, 29],
+    [16, 33, 15, 33],
+    [34, 25, 21, 13],
+    [41, 40, 38, 32],
+    [16, 29, 38, 16],
+    [40, 13, 28, 18],
 ]
 
 def recibo(presupuesto_numero):                 #Funcion que imprimira todo lo necesario para un recibo recibiendo el presupuesto
@@ -59,10 +74,17 @@ def determina_cacahuate_precio(mes,semana):				#Funcion que determina cual sera 
     semana_lugar = semana - 1							#Se resta para empezar desde el indice 0
     precio = cacahuate_precio[mes_lugar][semana_lugar]	#Se obtiene el precio en base a los indices
     return precio										#Regresa el precio
+
+def determina_agua_precio(mes,semana):				#Funcion que determina cual sera el precio del agua
+    mes_lugar = mes - 1									#Se resta para emepzar desde el indice 0
+    semana_lugar = semana - 1							#Se resta para empezar desde el indice 0
+    precio = botella_agua_precio[mes_lugar][semana_lugar]	#Se obtiene el precio en base a los indices
+    return precio	
         
 mes = int(input("Selecciona el mes: "))					#Solicita el mes de la compra
 semana = int(input("Selecciona la semana: "))			#Solicita la semana de la compra
 cacahuates_premium_precio = determina_cacahuate_precio(mes,semana)	#Guarda en una variable el resultado de la funcion determina_cacahuate_precio
+botella_agua_precio_determinado = determina_agua_precio(mes,semana)				#Guarda en una variable el resultado de la funcion determina_agua_precio	
 
 
 while a == 0:                                               #ciclo "while", que se repite si no se da un valor numerico como presupuesto
@@ -74,7 +96,7 @@ while i == 0:                                       #Incio del ciclo while
     print ("[1]Refresco coca cola ($20)")           #Los distintos productos que se pueden escoger
     print ("[2]Doritos ($23)")
     print ("[3]Paleta payaso ($10)")
-    print ("[4]Botella de agua ($13)")
+    print (f"[4]Botella de agua (${botella_agua_precio_determinado})")
     print (f"[5]Cacahuates premium (${cacahuates_premium_precio})")
     seleccion = input("Selecciona el numero del articulo que vas a comprar: ")
     if seleccion == "1":                                #Un if para saber que producto se va a comprar
@@ -139,7 +161,7 @@ while i == 0:                                       #Incio del ciclo while
         cantidad_numero = int (cantidad)                #Convierte la string recibida a un numero entero
         cantidad_total_agua = lista[3] + cantidad_numero
         lista[3] = cantidad_total_agua
-        costo_agua = cantidad_numero * BOTELLA_AGUA_PRECIO  #Operacion que obtiene el costo del producto en base a la cantidad y el precio unitario
+        costo_agua = cantidad_numero * botella_agua_precio_determinado  #Operacion que obtiene el costo del producto en base a la cantidad y el precio unitario
         print ("Costo", costo_agua)
         seguir = input ("Seguir comprando [y/n]")
         if seguir == "n":                               #If para saber si se quiere seguir comprando o no
@@ -172,3 +194,4 @@ while i == 0:                                       #Incio del ciclo while
             cantidad_numero_total += cantidad_numero    #Variable que con una suma va a ir acumulando la cantidad de prodcutos adquiridos
             costo_total += costo_cacahuate_total        #Variable que con una suma va a ir acumulando la cantidad del costo total
             i = i                                       #Al querer seguir comprando se repetira el ciclo while
+
