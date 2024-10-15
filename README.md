@@ -37,4 +37,44 @@ Por lo tanto, la transición de notas en papel a herramientas digitales no solo 
             &emsp;&emsp;**Sino repetir todo el proceso desde seleccionar el numero del articulo que se va a comprar**  
 &emsp;**Sino checar si es igual a "2" o "3" y repetir el mismo proceso que en "1"**  
 
+## Características
+- Permite al usuario seleccionar entre varios productos (refrescos, doritos, paletas payaso, botellas de agua y cacahuates premium).
+- Calcula el costo total de los productos adquiridos.
+- Genera un recibo al finalizar la compra, que incluye la lista de productos comprados, el costo total y el cambio del presupuesto.
+- Verifica que el presupuesto ingresado sea un número válido.
+- Admite múltiples compras hasta que el usuario decida finalizar.
 
+## Productos Disponibles
+- Refresco Coca Cola: $20
+- Doritos: $23
+- Paleta Payaso: $10
+- Botella de Agua: Precio variable según mes y semana.
+- Cacahuates Premium: Precio variable según mes y semana.
+
+## Variables Constantes
+- REFRESCO_PRECIO: Precio del refresco ($20).
+- DORITOS_PRECIO: Precio de los doritos ($23).
+- PALETA_PAYASO_PRECIO: Precio de la paleta payaso ($10).
+
+## Variables de Costo
+- costo_refresco_total: Acumula el costo total de los refrescos comprados.
+- costo_doritos_total: Acumula el costo total de los doritos comprados.
+- costo_paleta_total: Acumula el costo total de las paletas payaso compradas.
+- costo_agua_total: Acumula el costo total del agua comprada.
+- costo_cacahuate_total: Acumula el costo total de los cacahuates comprados.
+- cantidad_total: Acumula la cantidad total de productos adquiridos.
+- costo_total: Acumula el costo total de la compra.
+
+## Funciones Principales
+- recibo(presupuesto_numero): Imprime un recibo detallado de la compra.
+- es_numero(presupuesto): Verifica si el presupuesto ingresado es un número.
+- determina_cacahuate_agua_precio(mes, semana): Determina el precio de los cacahuates y el agua según el mes y la semana.
+
+## Uso
+1. Ejecuta el archivo de Python.
+2. Ingresa el mes y la semana de la compra.
+3. Especifica tu presupuesto.
+4. Selecciona los productos que deseas comprar ingresando el número correspondiente.
+5. Indica la cantidad de cada producto que deseas adquirir.
+6. Decide si deseas seguir comprando o finalizar la compra.
+7. Al finalizar, el recibo se imprimirá con todos los detalles.
