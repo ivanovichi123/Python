@@ -78,3 +78,18 @@ Por lo tanto, la transición de notas en papel a herramientas digitales no solo 
 5. Indica la cantidad de cada producto que deseas adquirir.
 6. Decide si deseas seguir comprando o finalizar la compra.
 7. Al finalizar, el recibo se imprimirá con todos los detalles.
+
+## Variable global
+El comando "global" se utiliza para permitir que una variable dentro de una función modifique una variable definida a nivel global en el programa. Sin "global", cualquier variable creada
+dentro de una función sería local a esa función, y los cambios no afectarían la variable global. En el código, "global" se usa para asegurarse de que los cambios en variables "a" y
+"presupuesto_numero" dentro de la función se reflejen en todo el programa, permitiendo controlar el ciclo y el manejo del presupuesto de manera correcta.
+
+## f-strings
+Los f-strings en Python se utilizan para combinar texto con variables en una cadena. Se utilizan añadiendo una "f" antes de las comillas y colocando las
+variables o expresiones entre llaves. Este método permite crear cadenas con variables de manera sencilla y rápida. Los f-strings mejoran la legibilidad del código y son una herramienta
+valiosa para formar texto en Python.
+
+## Refrerencias 
+W3Schools.com. (s. f.). https://www.w3schools.com/python/
+W3Schools.com. (s. f.-b). https://www.w3schools.com/python/python_variables_global.asp
+GeeksforGeeks. (2024, 19 junio). fstrings in Python. GeeksforGeeks. https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/
