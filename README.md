@@ -90,6 +90,6 @@ variables o expresiones entre llaves. Este método permite crear cadenas con var
 valiosa para formar texto en Python.
 
 ## Refrerencias 
-W3Schools.com. (s. f.). https://www.w3schools.com/python/
-W3Schools.com. (s. f.-b). https://www.w3schools.com/python/python_variables_global.asp
-GeeksforGeeks. (2024, 19 junio). fstrings in Python. GeeksforGeeks. https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/
+- W3Schools.com. (s. f.). https://www.w3schools.com/python/
+- W3Schools.com. (s. f.-b). https://www.w3schools.com/python/python_variables_global.asp
+- GeeksforGeeks. (2024, 19 junio). fstrings in Python. GeeksforGeeks. https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/
